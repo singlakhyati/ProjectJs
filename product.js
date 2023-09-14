@@ -53,26 +53,7 @@ function deleteproduct(index){
     localStorage.setItem('products',JSON.stringify(products));
     display();
 }
-let search=document.getElementById('search');
-search.addEventListener('input',function(){
-    let searchvalue=search.value;
-    let products=JSON.parse(localStorage.getItem('products'));
-    let tablebody=document.getElementById('tablebody');
-    let html='';
-    products.forEach(function(product,index){
-        if(product.name.toLowerCase().includes(searchvalue.toLowerCase())){
-            html+=`<tr>
-            <td>${index+1}</td>
-            <td>${product.name}</td>
-            <td>${product.price}</td>
-            <td>${product.quantity}</td>
-            <td><button onclick="deleteproduct(${index})" class="btn btn-danger">Delete</button></td>
-            </tr>`;
-        }
-    })
-    tablebody.innerHTML=html;
-}
-)
+
 let clear=document.getElementById('clear');
 clear.addEventListener('click',function(){
     localStorage.clear();
